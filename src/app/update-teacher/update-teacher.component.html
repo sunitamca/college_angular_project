@@ -1,0 +1,97 @@
+<h3 class="text-center"><u>Update Teacher</u></h3>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="container">
+       <p>* means mandatory</p>
+        <div for="firstname" class="form-group">
+            <label>First Name: *</label>
+            <input formControlName="firstname" type="text" class="form-control" id="fname" name="firstName"
+                [(ngModel)]="teacher.firstName">
+        </div>
+        <div *ngIf="f['firstname'].touched && f['firstname'].invalid" class="alert alert-danger">
+            <div *ngIf="f['firstname'].errors &&  f['firstname'].errors['required'] ">
+                First Name is mandatory**
+            </div>
+            <div *ngIf="f['firstname'].errors &&  f['firstname'].errors['minlength'] ">
+                Minimum length must be 3 characters**
+            </div>
+        </div>
+
+        <div  class="form-group">
+            <label for="lastname">Last Name *:</label>
+            <input formControlName="lastname" class="form-control" type="text" id="lname" name="lastname"
+                [(ngModel)]="teacher.lastName">
+        </div>
+        <div *ngIf="f['lastname'].touched && f['lastname'].invalid" class="alert alert-danger">
+            <div *ngIf="f['lastname'].errors && f['lastname'].errors['required']">
+                Last Name is mandatory**
+            </div>
+            <div *ngIf="f['lastname'].errors && f['lastname'].errors['minlength']">
+                Minimum length must be 3 characters**
+            </div>
+        </div>
+        <div  class="form-group">
+            <label for="cont">Contact: *</label>
+            <input formControlName="cont" class="form-control" type="text" id="contact" name="cont"
+                [(ngModel)]="teacher.contact">
+        </div>
+        <div *ngIf="f['cont'].touched && f['cont'].invalid" class="alert alert-danger">
+            <div *ngIf="f['cont'].errors && f['cont'].errors['required']">
+                Number should be mandatory**
+            </div>
+            <div *ngIf="f['cont'].errors && f['cont'].errors['maxlength']">
+                maximum length must be 10 Numbers**
+            </div>
+            <div *ngIf="f['cont'].errors && f['cont'].errors['minlength']">
+                minlength length must be 10 Numbers**
+            </div>
+            <div *ngIf="f['cont'].errors && f['cont'].errors['pattern']">
+                Contact Number should always be numberic**
+            </div>
+        </div>
+
+        <div  class="form-group">
+            <label for="email">Email: *</label>
+            <input formControlName="email" class="form-control" type="text" id="email" name="email"
+                [(ngModel)]="teacher.email">
+        </div>
+        <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+            <div *ngIf="f['email'].errors && f['email'].errors['required']">
+                Email is mandatory**
+            </div>
+            <div *ngIf="f['email'].errors && f['email'].errors['email']">
+                Please enter the Correct email**
+            </div>
+        </div>
+
+        <div  class="form-group">
+            <label for="username">User Name: *</label>
+            <input formControlName="username" class="form-control" type="text" id="userName" name="userName"
+                [(ngModel)]="teacher.userName">
+        </div>
+        <div *ngIf="f['username'].touched && f['username'].invalid" class="alert alert-danger">
+            <div *ngIf="f['username'].errors && f['username'].errors['required']">
+                UserName is mandatory**
+            </div>
+            <div *ngIf="f['username'].errors && f['username'].errors['minlength']">
+                Minimum length must be 4 characters**
+            </div>
+        </div>
+        <div  class="form-group">
+            <label for="pass">Password: *</label>
+            <input formControlName="pass" class="form-control" type="password" id="password" name="password"
+                [(ngModel)]="teacher.password">
+        </div>
+        <div *ngIf="f['pass'].touched && f['pass'].invalid" class="alert alert-danger">
+            <div *ngIf="f['pass'].errors && f['pass'].errors['required']">
+                Password is mandatory**
+            </div>
+            <div *ngIf="f['pass'].errors && f['pass'].errors['minlength']">
+                Minimum length must be 3 characters**
+            </div>
+        </div>
+
+        <br>
+
+        <button [disabled]="form.invalid" class="btn btn-success">Submit</button>
+    </div>
+</form>

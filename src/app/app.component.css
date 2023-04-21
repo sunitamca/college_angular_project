@@ -1,0 +1,21 @@
+.navbar-expand{
+    background-color: aquamarine;
+}
+
+a{
+    color: black;
+    font-size: larger;
+}
+
+a:active{
+    color: blue;
+}
+
+h4{
+    font-size: xx-large;
+    font-weight: bold;
+    margin-left: 50px;
+    margin-right: 50px;
+    margin-top: 5px;
+}
+
